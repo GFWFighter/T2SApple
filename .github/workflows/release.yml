@@ -19,6 +19,13 @@ jobs:
         with:
           repository: heiher/hev-socks5-tunnel
           path: 'tun'
+
+      - name: Setup Dependencies
+        run: |
+          command -v "brew" >/dev/null 2>&1 || {
+            /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+          }
+          brew install libyaml 
           
       - name: Build xcframework
         run: |
